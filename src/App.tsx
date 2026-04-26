@@ -104,11 +104,6 @@ function AppContent() {
           <p className="text-xs text-gray-700 dark:text-neutral-600 mt-1">
             Corinto, Morazán, El Salvador
           </p>
-          <div className="mt-4 pt-4 border-t border-brand-cream-dark dark:border-neutral-800">
-            <p className="text-[11px] text-gray-600 dark:text-neutral-700">
-              Desarrollado por <span className="font-semibold text-gray-800 dark:text-neutral-500">Josue Ramos</span> &middot; Desarrollador Web
-            </p>
-          </div>
         </div>
       </footer>
     </div>
