@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Lora', Georgia, serif;
+  --color-brand-red: #d62828;
+  --color-brand-red-dark: #a31f1f;
+  --color-brand-red-light: #ef4444;
+  --color-brand-green: #2d6a4f;
+  --color-brand-green-light: #40916c;
+  --color-brand-cream: #fdf6ec;
+  --color-brand-cream-dark: #f5e6cc;
+  --color-brand-gold: #c8860a;
+  --color-brand-gold-light: #e09f1f;
+  --color-brand-brown: #3e2723;
+  --color-brand-brown-light: #5d4037;
+  --color-brand-dark: #000000;
+  --color-brand-darker: #000000;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(214, 40, 40, 0.25), 0 0 30px rgba(200, 134, 10, 0.15), 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(214, 40, 40, 0.4), 0 0 50px rgba(200, 134, 10, 0.25), 0 10px 35px rgba(0, 0, 0, 0.25);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes swing {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(12deg);
+  }
+  75% {
+    transform: rotate(-12deg);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    currentColor 0%,
+    var(--color-brand-gold) 25%,
+    currentColor 50%,
+    var(--color-brand-gold) 75%,
+    currentColor 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 0.4s ease-in-out;
+}
+
+.animate-swing {
+  animation: swing 2s ease-in-out infinite;
+}
+
+@keyframes bounce-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
