@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <section className="flex flex-col items-center justify-center py-10 px-4">
       <img
-        src="/logo_casa_grande.jpeg"
+        src={import.meta.env.BASE_URL + "logo_casa_grande.jpeg"}
         alt="Casa Grande Pizzeria y Comedor"
         className="animate-float animate-pulse-glow w-40 h-40 sm:w-52 sm:h-52 rounded-full object-cover border-4 border-brand-cream dark:border-neutral-800"
       />
