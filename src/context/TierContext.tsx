@@ -52,8 +52,8 @@ export const TIERS: Record<TierLevel, TierConfig> = {
   },
   premium: {
     name: 'Premium',
-    price: 250,
-    priceLabel: 'pago único + $10/mes mantenimiento',
+    price: 500,
+    priceLabel: 'pago único + $15 por cada mantenimiento',
     features: [
       'Todo en Profesional',
       'Pizza Builder',
