@@ -8,7 +8,6 @@ export const categories: Category[] = [
   { id: 'antojitos', name: 'Antojitos', icon: '\uD83C\uDF2E' },
   { id: 'sopas', name: 'Sopas', icon: '\uD83C\uDF72' },
   { id: 'bebidas', name: 'Bebidas', icon: '\uD83E\uDD64' },
-  { id: 'arma-pizza', name: 'Arma tu Pizza', icon: '\uD83C\uDF55' },
   { id: 'info', name: 'Info', icon: '\uD83D\uDCCD' },
   { id: 'siguenos', name: 'Síguenos', icon: '\uD83D\uDCF1' },
 ];

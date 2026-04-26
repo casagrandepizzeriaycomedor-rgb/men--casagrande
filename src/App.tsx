@@ -7,11 +7,8 @@ import InfoSection from './components/InfoSection';
 import SocialSection from './components/SocialSection';
 import WhatsAppButton from './components/WhatsAppButton';
 import SearchBar from './components/SearchBar';
-import PizzaBuilder from './components/PizzaBuilder';
-import TierSelectorBar from './components/TierSelectorBar';
-import AdminPanelBanner from './components/AdminPanelBanner';
 import { useTheme } from './hooks/useTheme';
-import { TierProvider, useTier } from './context/TierContext';
+import { TierProvider } from './context/TierContext';
 import { categories, menuItems } from './data/menuData';
 import type { FlatMenuItem } from './types/menu';
 
@@ -21,7 +18,7 @@ const categoryNotes: Record<string, string> = {
 };
 
 const menuCategories = categories.filter(
-  (c) => !['info', 'siguenos', 'arma-pizza'].includes(c.id)
+  (c) => !['info', 'siguenos'].includes(c.id)
 );
 
 function flattenItems(categoryId: string): FlatMenuItem[] {
@@ -58,7 +55,6 @@ function flattenAllItems(): FlatMenuItem[] {
 
 function AppContent() {
   const { isDark, toggle } = useTheme();
-  const { tierConfig } = useTier();
   const [activeCategory, setActiveCategory] = useState(categories[0].id);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -74,11 +70,11 @@ function AppContent() {
   const isSearching = searchResults !== null;
 
   return (
-    <div className="min-h-screen pb-36 bg-brand-cream dark:bg-brand-dark transition-colors">
+    <div className="min-h-screen pb-8 bg-brand-cream dark:bg-brand-dark transition-colors">
       <Header isDark={isDark} onToggleTheme={toggle} />
       <Hero />
       <CategoryTabs
-        categories={tierConfig.showPizzaBuilder ? categories : categories.filter((c) => c.id !== 'arma-pizza')}
+        categories={categories}
         activeCategory={activeCategory}
         onSelect={(id) => { setSearchQuery(''); setActiveCategory(id); }}
       />
@@ -92,8 +88,6 @@ function AppContent() {
         <InfoSection />
       ) : activeCategory === 'siguenos' ? (
         <SocialSection />
-      ) : activeCategory === 'arma-pizza' && tierConfig.showPizzaBuilder ? (
-        <PizzaBuilder />
       ) : (
         <MenuGrid
           items={filteredItems}
@@ -101,8 +95,7 @@ function AppContent() {
           categoryNote={categoryNotes[activeCategory]}
         />
       )}
-      {tierConfig.showAdminBanner && <AdminPanelBanner />}
-      {tierConfig.showWhatsApp && <WhatsAppButton />}
+      <WhatsAppButton />
       <footer className="border-t border-brand-cream-dark dark:border-neutral-800 mt-8">
         <div className="max-w-7xl mx-auto px-4 py-6 text-center">
           <p className="font-heading italic text-sm text-gray-900 dark:text-brand-cream/60">
@@ -118,7 +111,6 @@ function AppContent() {
           </div>
         </div>
       </footer>
-      <TierSelectorBar />
     </div>
   );
 }
