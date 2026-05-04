@@ -13,7 +13,10 @@ import { categories, menuItems } from './data/menuData';
 import type { FlatMenuItem } from './types/menu';
 
 const categoryNotes: Record<string, string> = {
-  pupusas: 'De 3:00 PM en adelante',
+  comida: 'Disponibles de 3:00 PM en adelante',
+  pupusas: 'Disponibles de 3:00 PM en adelante',
+  antojitos: 'Disponibles de 3:00 PM en adelante',
+  'bebidas-calientes': 'Disponibles de 3:00 PM en adelante',
   sopas: 'Miércoles y Domingos',
 };
 

@@ -22,7 +22,7 @@ export default function MenuCard({ item, onClick }: MenuCardProps) {
           ) : (
             <div className="w-full h-full bg-brand-cream-dark/60 dark:bg-neutral-800/60 flex items-center justify-center">
               <span className="text-sm italic text-brand-brown-light/40 dark:text-neutral-600">
-                Imagen aquí
+                Sin imagen
               </span>
             </div>
           )}
